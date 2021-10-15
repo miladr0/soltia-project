@@ -2,7 +2,7 @@
 
 Auto complete search with extra options.
 
-[Demo]()
+[Demo](https://soltia-project.vercel.app/src/index.html)
 
 <br>
 
