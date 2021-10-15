@@ -1,0 +1,27 @@
+.pure-button {
+  border: 2px solid #919191;
+  background: linear-gradient(to right, #f2af63, #ef9545);
+  padding: 0.3em;
+  width: 7em;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.pure-button::after {
+  margin-left: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  content: '\00d7';
+  font-size: 1.9rem;
+  font-weight: normal;
+  width: 40px;
+  height: 40px;
+  background: var(--white);
+  border-radius: 50%;
+}
