@@ -44,7 +44,7 @@ body {
 header {
   padding: 1em;
   padding-bottom: 0;
-  background: var(--primary-color);
+  background-image: linear-gradient(to right, #8e2de2, #4a00e0);
 }
 
 h1 {
