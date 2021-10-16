@@ -153,7 +153,7 @@
   padding: 0.6em 0;
 }
 
-#history li h6 {
+#history li h3 {
   font-weight: normal;
   font-size: 0.9em;
 }
@@ -166,7 +166,7 @@
 
 .history-info p {
   font-size: 0.8em;
-  color: #919191;
+  color: #5f5f5f;
   margin-right: 1em;
 }
 

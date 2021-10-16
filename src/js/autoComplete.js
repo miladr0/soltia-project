@@ -369,6 +369,7 @@ AutoComplete.prototype.createCloseIcon = function createCloseIcon() {
   this.closeIcon = document.createElement('span');
   this.closeIcon.innerHTML = CLOSED_ICON_SVG;
   this.closeIcon.setAttribute('aria-label', 'clear');
+  this.closeIcon.setAttribute('role', 'button');
   this.closeIcon.classList.add('close-icon');
   this.closeIcon.classList.add('hidden');
 
@@ -395,8 +396,8 @@ AutoComplete.prototype.populateHistoryItems = function populateHistoryItems() {
   this.searchedItems = JSON.parse(localStorage.getItem(SEARCHED_ITEMS_KEY) || '[]');
 
   this.historyElement.innerHTML = this.searchedItems.map((item, i) => (`<li key=${i}>
-    <h6>${item.title}</h6>
-    <div class="history-info"><p>${item.createdAt}</p> <span aria-label="remove" class="delete-history">${CLOSED_ICON_SVG}</span></div>
+    <h3>${item.title}</h3>
+    <div class="history-info"><p>${item.createdAt}</p> <span role="button" aria-label="remove" class="delete-history">${CLOSED_ICON_SVG}</span></div>
 </li>`)).join('');
 
   const items = this.historyElement.querySelectorAll('.delete-history');
