@@ -397,7 +397,7 @@ AutoComplete.prototype.populateHistoryItems = function populateHistoryItems() {
 
   this.historyElement.innerHTML = this.searchedItems.map((item, i) => (`<li key=${i}>
     <h3>${item.title}</h3>
-    <div class="history-info"><p>${item.createdAt}</p> <span role="button" aria-label="remove" class="delete-history">${CLOSED_ICON_SVG}</span></div>
+    <div class="history-info"><p>${item.createdAt}</p> <button class="delete-history" aria-label="remove"><span >${CLOSED_ICON_SVG}</span></button></div>
 </li>`)).join('');
 
   const items = this.historyElement.querySelectorAll('.delete-history');

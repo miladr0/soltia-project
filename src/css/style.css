@@ -37,10 +37,11 @@ h6 {
 /* Top menu styles
 ------------------------- */
 body {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  height:100vh;
+  height: 100vh;
 }
+
 header {
   padding: 1em;
   padding-bottom: 0;
@@ -138,7 +139,7 @@ nav {
 -------------------- */
 .main-content {
   display: flex;
-  flex:1;
+  flex: 1;
   align-items: center;
   justify-content: center;
   flex-direction: column;
