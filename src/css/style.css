@@ -53,8 +53,15 @@ h1 {
   margin-bottom: 1em;
 }
 
+header h1 {
+  transform: translateY(0);
+  animation: float 3s ease-in-out infinite;
+}
+
 h1 a {
   color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
 }
 
 nav {
@@ -261,5 +268,23 @@ nav {
   nav li {
     display: inline-block;
     margin-right: 1em;
+  }
+}
+
+
+/* Custom CSS Animation
+------------------------ */
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }
