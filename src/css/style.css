@@ -6,7 +6,6 @@
   --black-1: #101010;
   --white: #fff;
   --white-1: #e2e8f0;
-  --green: #76c085;
 }
 
 /* Primary styles
@@ -95,7 +94,7 @@ nav {
   position: absolute;
   right: 1em;
   top: 0.8em;
-  padding: 8px;
+  padding: 5px;
   border: 2px solid var(--white);
   border-radius: 5px;
   font-size: 1em;
