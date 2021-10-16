@@ -27,7 +27,7 @@
   width: 100%;
   border-radius: 5px;
   border: 1px solid #ccc;
-  padding: 0 10px;
+  padding: 0 40px 0 10px;
   font-size: 18px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
@@ -35,7 +35,7 @@
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .autocomplete-optionNoResults {
@@ -82,26 +82,6 @@
   font-weight: bold;
 }
 
-.close-icon {
-  position: absolute;
-  top: 22px;
-  right: 13px;
-  cursor: pointer;
-  font-size: 16px;
-  width: 1em;
-  height: 1em;
-  padding: 0.5em;
-  border-radius: 50%;
-}
-
-.close-icon:hover {
-  background-color: #ccc6;
-}
-
-.close-icon svg {
-  fill: #797b79;
-}
-
 .history {
   width: 100%;
   display: flex;
@@ -144,13 +124,16 @@
 }
 
 #history li {
-  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #ccc;
-  padding: 0.6em 0;
+  padding: 0.6em 0.4em;
+}
+
+#history li:hover {
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
 #history li h3 {
@@ -166,7 +149,7 @@
 
 .history-info p {
   font-size: 0.8em;
-  color: #5f5f5f;
+  color: #536471;
   margin-right: 1em;
 }
 
@@ -190,12 +173,51 @@
   height: 1em;
 }
 
-.delete-history span:hover {
-  background-color: #ccc6;
+.delete-history span svg {
+  fill: #536471;
 }
 
-.delete-history svg {
-  fill: #797b79;
+.delete-history span:hover {
+  background-color: rgba(249, 24, 128, 0.1);
+}
+
+.delete-history span:hover svg {
+  fill: rgb(249, 24, 128);
+}
+
+#close-icon {
+  position: absolute;
+  top: 13px;
+  right: 2px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0.5em;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+#close-icon span {
+  font-size: 16px;
+  padding: 0.5em;
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+}
+
+#close-icon span svg {
+  fill: #536471;
+}
+
+#close-icon span:hover {
+  background-color: rgba(29, 155, 240, 0.1);
+}
+
+#close-icon span:hover svg {
+  fill: rgb(29, 155, 240);
 }
 
 /* responsive positioning

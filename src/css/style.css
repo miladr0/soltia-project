@@ -6,7 +6,6 @@
   --black-1: #101010;
   --white: #fff;
   --white-1: #e2e8f0;
-  --green: #76c085;
 }
 
 /* Primary styles
@@ -45,7 +44,7 @@ body {
 header {
   padding: 1em;
   padding-bottom: 0;
-  background: var(--primary-color);
+  background-image: linear-gradient(to right, #8e2de2, #4a00e0);
 }
 
 h1 {
@@ -54,8 +53,15 @@ h1 {
   margin-bottom: 1em;
 }
 
+header h1 {
+  transform: translateY(0);
+  animation: float 3s ease-in-out infinite;
+}
+
 h1 a {
   color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
 }
 
 nav {
@@ -95,7 +101,7 @@ nav {
   position: absolute;
   right: 1em;
   top: 0.8em;
-  padding: 8px;
+  padding: 5px;
   border: 2px solid var(--white);
   border-radius: 5px;
   font-size: 1em;
@@ -262,5 +268,23 @@ nav {
   nav li {
     display: inline-block;
     margin-right: 1em;
+  }
+}
+
+
+/* Custom CSS Animation
+------------------------ */
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }
