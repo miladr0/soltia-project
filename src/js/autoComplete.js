@@ -132,9 +132,9 @@ AutoComplete.prototype.startFetch = function startFetch(text) {
 
 AutoComplete.prototype.onTextBoxType = function onTextBoxType() {
   if (this.textBox.value.trim().length > 0) {
-    if (this.textBox.value.length < 3) return;
-
     this.closeIcon.classList.remove('hidden');
+
+    if (this.textBox.value.length < 2) return;
 
     if (this.timer) {
       clearTimeout(this.timer);
@@ -366,11 +366,10 @@ AutoComplete.prototype.setValue = function setValue(t) {
 };
 
 AutoComplete.prototype.createCloseIcon = function createCloseIcon() {
-  this.closeIcon = document.createElement('span');
-  this.closeIcon.innerHTML = CLOSED_ICON_SVG;
+  this.closeIcon = document.createElement('button');
+  this.closeIcon.innerHTML = `<span >${CLOSED_ICON_SVG}</span>`;
   this.closeIcon.setAttribute('aria-label', 'clear');
-  this.closeIcon.setAttribute('role', 'button');
-  this.closeIcon.classList.add('close-icon');
+  this.closeIcon.setAttribute('id', 'close-icon');
   this.closeIcon.classList.add('hidden');
 
   this.wrapper.appendChild(this.closeIcon);
