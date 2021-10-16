@@ -6,7 +6,7 @@
   "scripts": {
     "lint:html": "pa11y-ci ./src/**/*.html",
     "lint:js": "./node_modules/.bin/eslint --fix src/js/*.js",
-    "format:css": "stylelint --fix \"css/**/*.css\""
+    "format:css": "stylelint --fix \"src/css/*.css\""
   },
   "devDependencies": {
     "eslint": "^8.0.1",
