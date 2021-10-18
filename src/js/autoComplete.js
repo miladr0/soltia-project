@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://restcountries.com/v3.1/name/';
+const API_BASE_URL = 'https://api.geocodify.com/v2/autocomplete?api_key=17158ea830087f11e6ebf1bf95e3625e9063646e&q=';
 const SEARCHED_ITEMS_KEY = 'searchedItems';
 const CLOSED_ICON_SVG = '<svg aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z"/></svg>';
 const FETCH_DELAY = 200;
@@ -252,9 +252,11 @@ AutoComplete.prototype.buildMenu = function buildMenu(dataArray) {
 
   this.activeOptionId = null;
 
-  if (Array.isArray(dataArray) && dataArray.length) {
-    for (let e = 0; e < dataArray.length; e += 1) {
-      this.menu.appendChild(this.createItemHtml(e, dataArray[e]));
+  if (dataArray && dataArray.response && Array.isArray(dataArray.response.features)
+  && dataArray.response.features.length) {
+    const { features } = dataArray.response;
+    for (let e = 0; e < features.length; e += 1) {
+      this.menu.appendChild(this.createItemHtml(e, features[e]));
     }
   } else {
     this.menu.appendChild(this.createNoResultsHtml());
@@ -270,12 +272,13 @@ AutoComplete.prototype.createNoResultsHtml = function createNoResultsHtml() {
 
 AutoComplete.prototype.createItemHtml = function createItemHtml(t, e) {
   const li = document.createElement('li');
+  const name = `${e.properties.name} ${e.properties.country_a ? ` (${e.properties.country_a})` : ''}`;
   li.setAttribute('tabindex', '-1');
   li.setAttribute('aria-selected', 'false');
   li.setAttribute('role', 'option');
-  li.setAttribute('data-option-value', e.name.official);
+  li.setAttribute('data-option-value', name);
   li.setAttribute('id', `autocomplete-option--${t}`);
-  li.innerHTML = e.name.official.toLowerCase().replace(this.textBox.value, `<span class="option-highlight">${this.textBox.value}</span>`);
+  li.innerHTML = name.toLowerCase().replace(this.textBox.value, `<span class="option-highlight">${this.textBox.value}</span>`);
 
   li.addEventListener('click', this.onOptionClick.bind(this));
 
